@@ -1,0 +1,204 @@
+﻿<Window x:Class="WpfApplication3.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication3"
+        mc:Ignorable="d"
+        Title="Öğrenci Takip Sistemi" Height="559" Width="800" Background="{x:Null}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded" Icon="images/icon/adam.png">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.47"/>
+    </Window.Effect>
+    <Grid Height="560" VerticalAlignment="Top" Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.47" ShadowDepth="4"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--Logo ve butonlar-->
+        <Border Background="#134187" Grid.Row="0" Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="images/icon/adam.png" Height="24" Width="24"></Image>
+                        <Label Content="ÖĞRENCİ TAKİP SİSTEMİ" FontWeight="Bold" Foreground="#FFF9F6F6" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontStyle="Italic"></Label>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Row="1">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="#99053D76"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#7F2873BF">
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="images/icon/adam2.png"/>
+                                    <Setter Property="Height" Value="auto"/>
+                                    <Setter Property="Width" Value="110"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="images/icon/kep.png"/>
+                                            <Setter Property="Width" Value="120"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+        <!--mini header ve minibutonlar-->
+        <Border Background="#134187" Grid.Row="0" Grid.Column="1" Margin="0,0,17,0">
+            <Grid Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="White" Grid.Row="0" x:Name="brd_sagust" MouseDown="brd_sagust_MouseDown" Margin="0,0,-9,0">
+                    <DockPanel Width="72" HorizontalAlignment="Right">
+                        <Button Content="__" Style="{DynamicResource minibutonlar}" FontSize="12" x:Name="btn_SimgeDurumu" Click="btn_SimgeDurumu_Click"/>
+                        <Button Content="x" x:Name="btn_kapat" Click="btn_kapat_Click" Style="{DynamicResource minibutonlar}" FontSize="12" Width="37"/>
+                    </DockPanel>
+                </Border>
+                <Border HorizontalAlignment="Left" Width="530" Margin="0,1,0,133" Grid.RowSpan="2">
+                    <Canvas Margin="0,0,-9,0">
+                        <DockPanel Width="45" HorizontalAlignment="Left"/>
+                        <DockPanel HorizontalAlignment="Center" Width="298" Height="35" Canvas.Left="118">
+                            <Image Source="images/icon/marmarauni.jpg" HorizontalAlignment="Right" Width="87" Margin="0,0,0,2"></Image>
+                            <Label Content="MARMARA ÜNİVERSİTESİ"  x:Name="lbl_marmarauni" MouseDown="lbl_marmarauni_MouseDown" FontSize="17" HorizontalAlignment="Left" Width="217" VerticalAlignment="Center" FontStyle="Italic" FontWeight="Bold" Margin="0,2"></Label>
+                        </DockPanel>
+                    </Canvas>
+                </Border>
+                <Border Grid.Row="1" x:Name="brd_sagorta" MouseDown="brd_sagust_MouseDown" Margin="0,0,16,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Border Margin="41,1,-26,-21" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0.952"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                            <Border.Background>
+                                <ImageBrush ImageSource="images/icon/Windowimage/üstorta2.png"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel VerticalAlignment="Center" Margin="30,0,0,0">
+                            <Label Content="HOŞGELDİNİZ" Foreground="White" FontSize="21" FontStyle="Italic" FontWeight="Bold" Margin="-15,0,0,0"/>
+                            <Canvas>
+                                <Label Content="Dr. Öğr. Üyesi Nazmi EKREN" Foreground="White" FontSize="21" FontStyle="Italic" FontWeight="Bold" Canvas.Left="187" Canvas.Top="-70"/>
+                                <Label Content="Selami DURMUŞ" Foreground="White" FontSize="21" FontStyle="Italic" FontWeight="Bold" Canvas.Left="159" Canvas.Top="-12"/>
+                                <Label Content="Aykut ŞAHİN" Foreground="White" FontSize="21" FontStyle="Italic" FontWeight="Bold" Canvas.Left="355" Canvas.Top="-12"/>
+                            </Canvas>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <!--menu header ve minibutonlar-->
+        <Border Background="#134187" Grid.Row="1" Grid.Column="0">
+            <StackPanel>
+                <Button Height="50" x:Name="menubuton_ogrencigirisi" Click="menubuton_ogrencigirisi_Click" >
+                    <DockPanel Width="190">
+                        <Image Source="images/icon/ogrencigiris.png" Width="37" HorizontalAlignment="Center"/>
+                        <Label Content="Öğrenci Girişleri" Foreground="Black" FontSize="19" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50"  x:Name="menubuton_ogrenciEkle" Click="menubuton_ogrenciEkle_Click" HorizontalContentAlignment="Center" Padding="1" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="20"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <DockPanel Width="195">
+                        <Image Source="images/icon/plus.png" Width="37" HorizontalAlignment="Left"/>
+                        <Label Content="Öğrenci Ekle" Foreground="Black" FontSize="19" HorizontalAlignment="Center" FontWeight="Bold" Width="130"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50"  x:Name="menubuton_ogrencizleme" Click="menubuton_ogrencizleme_Click" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5"  >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="40"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <DockPanel Width="194">
+                        <Image Source="images/icon/document.png" Width="37" HorizontalAlignment="Left"/>
+                        <Label Content="Sınav Girişleri" Foreground="Black" FontSize="19" HorizontalAlignment="Left" FontWeight="Bold"/>
+                    </DockPanel>
+                </Button>
+
+                <Button Height="50"   x:Name="menubuton_Yoklama" Click="menubuton_Yoklama_Click" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="60"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <DockPanel Width="194">
+                        <Image Source="images/icon/izleme.png" Width="37" HorizontalAlignment="Left"/>
+                        <Label Content="Öğrenci Yoklama" Foreground="Black" FontSize="19" HorizontalAlignment="Left" FontWeight="Bold" Width="162"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="50"  x:Name="menubuton_ogrenci_imza" Click="menubuton_ogrenci_imza_Click" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="80"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <DockPanel Width="194">
+                        <Image Source="images/icon/imza.png" Width="37" HorizontalAlignment="Left"/>
+                        <Label Content="İmza Listesi" Foreground="Black" FontSize="19" HorizontalAlignment="Left" FontWeight="Bold"/>
+                    </DockPanel>
+                </Button>
+                <Canvas/>
+                <Image Source="images/icon/Windowimage/solalt.png" Height="163" Margin="0,0,-21,0"/>
+            </StackPanel>
+        </Border>
+        <!--Content içerik-->
+        <Border Grid.Row="1" Background="#FFECE7E7" Grid.ColumnSpan="2" Margin="210,0,17,0">
+            <Grid x:Name="Content_icerik" MouseDown="Content_icerik_MouseDown" >
+                <Label x:Name="Versiyon" HorizontalAlignment="Left" Height="28" Margin="-200,336,0,0" VerticalAlignment="Top" Width="198"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

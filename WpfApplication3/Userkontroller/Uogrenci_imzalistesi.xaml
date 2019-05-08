@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="WpfApplication3.Userkontroller.Uogrenci_imzalistesi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication3.Userkontroller"
+               mc:Ignorable="d" 
+             d:DesignHeight="260" d:DesignWidth="350" Loaded="UserControl1_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="7"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#FFDAD6D6"/>
+        <DataGrid x:Name="dtg_ogrenci_imza" LoadingRow="dtg_ogrenci_imza_LoadingRow" ItemsSource="{Binding}" Background="#FFF1F1F1" BorderBrush="{x:Null}" Foreground="#FF052D81" IsReadOnly="True" RowHeight="20" CanUserAddRows="False"  HorizontalGridLinesBrush="#FFB2B0B0" VerticalGridLinesBrush="#FFC3BBBB" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Numara}" IsReadOnly="True" Header="              Öğrenci No"   MinWidth="180" TextBlock.TextAlignment="Center">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="#2e61af"/>
+                            <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                            <Setter Property="BorderBrush" Value="#FF134187"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FF134187"/>
+                                    <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                                    <Setter Property="BorderBrush" Value="White"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=AdSoyad}" IsReadOnly="True" Header="                   Adı Soyadı" MinWidth="180" TextBlock.TextAlignment="Center" >
+                    <DataGridTextColumn.ElementStyle> 
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="#2e61af"/>
+                            <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                            <Setter Property="BorderBrush" Value="#FF134187"/>
+                            <Setter Property="Foreground" Value="White"/>
+                           
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FF134187"/>
+                                    <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                                    <Setter Property="BorderBrush" Value="White"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn  IsReadOnly="True" Header="                          İmza" MinWidth="178" TextBlock.TextAlignment="Center" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="#2e61af"/>
+                            <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                            <Setter Property="BorderBrush" Value="#FF134187"/>
+                            <Setter Property="Foreground" Value="White"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FF134187"/>
+                                    <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                                    <Setter Property="BorderBrush" Value="White"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border Background="White" Grid.Row="1" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{DynamicResource userKontrolOgrenciKaydetButon}" Content=" Listeyi Yazdır" x:Name="Btn_Ogrenci_İmza" Click="Btn_Ogrenci_İmza_Click"  Width="111" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
